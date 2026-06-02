@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-dark-900 text-white font-outfit antialiased;
+    background: radial-gradient(ellipse at top, #150000 0%, #000000 80%);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #000000; }
+  ::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 999px; border: 2px solid #000000; }
+}
+
+@layer components {
+  /* ── Glass morphism card ── */
+  .glass {
+    background: rgba(17,17,17,0.75);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid #1F1F1F;
+  }
+  .glass-hover {
+    @apply glass transition-all duration-300;
+  }
+  .glass-hover:hover {
+    background: rgba(17,17,17,0.92);
+    border-color: rgba(220,38,38,0.55);
+    box-shadow: 0 0 32px rgba(220,38,38,0.18);
+  }
+
+  /* ── Neon text ── */
+  .text-neon-red { color: #DC2626; }
+  .text-neon-crimson { color: #990000; }
+  .text-neon-ember { color: #FF3B3B; }
+
+  /* ── Neon glow text ── */
+  .glow-red { text-shadow: 0 0 22px rgba(220,38,38,0.85); }
+  .glow-crimson { text-shadow: 0 0 24px rgba(153,0,0,0.85); }
+  .glow-ember { text-shadow: 0 0 22px rgba(255,59,59,0.85); }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    background: linear-gradient(90deg, #DC2626, #990000, #FF3B3B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Primary button ── */
+  .btn-primary {
+    @apply relative overflow-hidden px-6 py-3 rounded-lg font-syne font-bold text-sm tracking-widest text-white transition-all duration-300;
+    background: linear-gradient(135deg, #000000 10%, #1F1F1F 70%, #DC2626 100%);
+    box-shadow: 0 0 18px rgba(220,38,38,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 42px rgba(220,38,38,0.75), 0 0 80px rgba(153,0,0,0.2);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* ── Secondary button ── */
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-syne font-bold text-sm tracking-widest transition-all duration-300;
+    border: 1px solid rgba(220,38,38,0.55);
+    color: #FF3B3B;
+    background: rgba(0,0,0,0.45);
+  }
+  .btn-secondary:hover {
+    background: rgba(220,38,38,0.12);
+    border-color: #DC2626;
+    box-shadow: 0 0 22px rgba(220,38,38,0.28);
+  }
+
+  /* ── Input field ── */
+  .input-neon {
+    @apply w-full rounded-2xl px-4 py-3 text-sm text-white outline-none transition-all duration-300;
+    background: rgba(17,17,17,0.78);
+    border: 1px solid #1F1F1F;
+  }
+  .input-neon::placeholder { color: rgba(255,255,255,0.35); }
+  .input-neon:focus {
+    border-color: #DC2626;
+    box-shadow: 0 0 0 3px rgba(220,38,38,0.16), 0 0 24px rgba(220,38,38,0.12);
+  }
+
+  /* ── Neon divider ── */
+  .neon-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #DC2626, #990000, transparent);
+  }
+
+  /* ── Badge ── */
+  .badge-new    { @apply text-xs font-bold px-2 py-1 rounded; background: linear-gradient(135deg,#DC2626,#990000); color: white; }
+  .badge-sale   { @apply text-xs font-bold px-2 py-1 rounded; background: linear-gradient(135deg,#FF3B3B,#990000); color: white; }
+  .badge-hot    { @apply text-xs font-bold px-2 py-1 rounded; background: linear-gradient(135deg,#990000,#FF3B3B); color: white; }
+  .badge-out    { @apply text-xs font-bold px-2 py-1 rounded; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+  /* ── Scrollbar styling ── */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; }
+}
+
+@layer utilities {
+  .perspective-1000 { perspective: 1000px; }
+  .rotate-y-10 { transform: rotateY(10deg); }
+}
